@@ -1,31 +1,66 @@
+
 name: Enviar App a Firebase
 
+
+
 on:
-    push:
-          branches: [ "master", "main" ]
 
-      jobs:
-        build:
-            runs-on: ubuntu-latest
+  push:
 
-              steps:
-                  - name: 1. Descargar el código
-                      uses: actions/checkout@v4
+    branches: [ "master", "main" ]
 
-                          - name: 2. Configurar el entorno (Java)
-                              uses: actions/setup-java@v4
-                                    with:
-                                        java-version: '17'
-                                              distribution: 'temurin'
 
-                                              - name: 3. Dar permisos al compilador
-                                                run: chmod +x gradlew
 
-                                                    - name: 4. Armar la Aplicación (APK)
-                                                        run: ./gradlew assembleDebug
+jobs:
 
-                                                            - name: 5. Enviar a Firebase App Distribution
-                                                                uses: wzieba/Firebase-Distribution-Github-Action@v1
-                                                                      with:
-                                                                          appId: ${{secrets.FIREBASE_APP_ID}}
-                                                                                serviceCredentialsFileContent: ${{secrets.CREDE-debug.apk"]
+  build:
+
+    runs-on: ubuntu-latest
+
+
+
+    steps:
+
+      - name: 1. Descargar el código
+
+        uses: actions/checkout@v4
+
+
+
+      - name: 2. Configurar el entorno (Java)
+
+        uses: actions/setup-java@v4
+
+        with:
+
+          java-version: '17'
+
+          distribution: 'temurin'
+
+
+
+      - name: 3. Dar permisos al compilador
+
+        run: chmod +x gradlew
+
+
+
+      - name: 4. Armar la Aplicación (APK)
+
+        run: ./gradlew assembleDebug
+
+
+
+      - name: 5. Enviar a Firebase App Distribution
+
+        uses: wzieba/Firebase-Distribution-Github-Action@v1
+
+        with:
+
+          appId: ${{secrets.FIREBASE_APP_ID}}
+
+          serviceCredentialsFileContent: ${{secrets.CREDENTIAL_FILE_CONTENT}}
+
+          groups: mis-telefonos
+
+          file: app/build/outputs/apk/debug/app-debug.apk
