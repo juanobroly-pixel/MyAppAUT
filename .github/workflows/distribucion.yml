@@ -1,3 +1,5 @@
+name: Enviar App a Firebase
+
 
 
 on:
@@ -52,9 +54,14 @@ jobs:
 
         uses: wzieba/Firebase-Distribution-Github-Action@v1
 
-    with:
+        with:
 
-      appId: ${{ secrets.FIREBASE_APP_ID }}
-      serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
-      #groups: mis-telefonos
-      file: app/build/outputs/apk/debug/app-debug.apk
+          appId: ${{secrets.FIREBASE_APP_ID}}
+
+          serviceCredentialsFileContent: ${{secrets.CREDENTIAL_FILE_CONTENT}}
+
+          #groups: mis-telefonos
+
+          file: app/build/outputs/apk/debug/app-debug.apk
+
+
