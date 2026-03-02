@@ -54,10 +54,11 @@ jobs:
       - name: 5. Enviar a Firebase App Distribution
 
         uses: wzieba/Firebase-Distribution-Github-Action@v1
-
-        with:
-
-          appId: ${{secrets.FIREBASE_APP_ID}}
+with:
+  appId: ${{ secrets.FIREBASE_APP_ID }}           # Ensure this matches your real app's ID
+  serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}  # Ensure this is correct JSON
+  groups: mis-telefonos                            # Must exist in Firebase App Distribution
+  file: app/build/outputs/apk/debug/app-debug.apk  # Confirm this file path is correct
 
           serviceCredentialsFileContent: ${{secrets.CREDENTIAL_FILE_CONTENT}}
 
