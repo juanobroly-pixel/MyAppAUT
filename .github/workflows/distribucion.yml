@@ -70,8 +70,6 @@ jobs:
     nombre: # opcional
     # ID de los artefactos a descargar, separados por comas. Se pueden usar las entradas `artifact-ids` o `name`, pero no ambas.
     identificadores de artefactos: # opcional
-    Ruta de destino. Admite expansión de tilde básica. El valor predeterminado es $GITHUB_WORKSPACE.
-    ruta: # opcional
     # Un patrón glob que coincide con los artefactos que deben descargarse. Se ignora si se especifica el nombre.
     patrón: # opcional
     # Cuando se combinan varios artefactos, esto cambia el comportamiento de los directorios de destino. Si es verdadero, los artefactos descargados estarán en el mismo directorio especificado por la ruta. Si es falso, los artefactos descargados se extraerán en directorios individuales dentro de la ruta especificada.
