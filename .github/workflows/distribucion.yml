@@ -12,8 +12,7 @@ jobs:
 
   build:
 
-    runs-on: ubuntu-latest
-            - nombre: Subir un artefacto de compilación
+    runs-on: ubuntu-latest- nombre: Subir un artefacto de compilación
   usos: actions/upload-artifact@v7.0.0
   con:
     # Nombre del artefacto. Si la entrada `archivo` es `falso`, el nombre del archivo cargado será el nombre del artefacto
