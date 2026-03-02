@@ -52,13 +52,12 @@ jobs:
 
         uses: wzieba/Firebase-Distribution-Github-Action@v1
 
-        with:
+    with:
+      appId: ${{ secrets.FIREBASE_APP_ID }}
+      serviceCredentialsFileContent: ${{ secrets.CREDENTIAL_FILE_CONTENT }}
+      #groups: mis-telefonos
+      file: app/build/outputs/apk/debug/app-debug.apk
 
-          appId: ${{secrets.FIREBASE_APP_ID}}
-
-          serviceCredentialsFileContent: ${{secrets.CREDENTIAL_FILE_CONTENT}}
-
-          #groups: mis-telefonos
 
 
   usos: acciones/descargar-artefacto@v8.0.0
@@ -66,8 +65,7 @@ jobs:
     # Nombre del artefacto a descargar. Si no se especifica, se descargan todos los artefactos de la ejecución.
     nombre: # opcional
     # ID de los artefactos a descargar, separados por comas. Se pueden usar las entradas `artifact-ids` o `name`, pero no ambas.
-    identificadores de artefactos: # opcional
-     Ruta de destino. Admite expansión de tilde básica. El valor predeterminado es $GITHUB_WORKSPACE.
+
     ruta: # opcional
     # Un patrón glob que coincide con los artefactos que deben descargarse. Se ignora si se especifica el nombre.
     patrón: # opcional
